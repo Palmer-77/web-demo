@@ -1,13 +1,14 @@
-<template> 
-    <div>
-        <h1>Get User By Id</h1> 
-    </div>
-</template> 
-
-<script>
-    export default {
+<template> <div>
+<h1>Show User</h1>
+<p>User ID: {{ userId }}</p> </div>
+</template> <script>
+export default {
+  data () {
+    return {
+userId: 0 }
+  },
+  created () {
+this.userId = this.$route.params.userId }
 }
-</script> 
-
-<style scoped>
+</script> <style scoped>
 </style>
