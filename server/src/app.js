@@ -32,6 +32,10 @@ app.get('/users', function (req, res) {
     res.send('เรียกข้อมูลผู้ใช้งานทั้งหมด')
 })
 
+// Showuserend
+app.get('/showuser_end', function (req, res) { 
+    res.send('เรียกข้อมูลผู้ใช้งานIDสุดท้าย'+ JSON.stringify(req.body))
+})
  
 
 // create user
@@ -49,10 +53,7 @@ app.delete('/user/:userId', function (req, res) {
     JSON.stringify(req.body))
 })
 
-// Showuserend
-app.get('/showuser_end', function (req, res) { 
-    res.send('เรียกข้อมูลผู้ใช้งานIDสุดท้าย'+ JSON.stringify(req.body))
-})
+
 
 
 let port = process.env.PORT || config.port
