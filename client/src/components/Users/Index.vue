@@ -3,6 +3,7 @@
         <h2>Get all users</h2>
         <h4>จำนวนผู้ใช้งาน {{users.length}}</h4>
         <p><button v-on:click="navigateTo('/user/create')">สร้างผู้ใช้งาน</button></p>
+        <p><button v-on:click="logout">Logout</button></p>
 
         <div v-for="user in users" v-bind:key="user.id">
             <p>id: {{ user.id }}</p>
@@ -44,7 +45,13 @@
             },
                 async refreshData() {
                 this.users = (await UsersService.index()).data
-            }
+            },
+            logout () { 
+                this.$store.dispatch('setToken', null) 
+                this.$store.dispatch('setUser', null) 
+                this.$router.push({
+                name: 'login' })
+            },
         }
     }
 </script>
